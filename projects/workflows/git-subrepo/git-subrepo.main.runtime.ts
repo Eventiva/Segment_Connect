@@ -145,7 +145,7 @@ export class GitSubrepoMain {
 
   async branch(subdirectory: string, flags: string[]) {
     // exec sync the sh file located at projects\workflows\git-subrepo\cmd\lib\git-subrepo with the branch command and the subdirectory argument
-    return execSync(`${this.getAspectDirectory()}/cmd/lib/git-subrepo branch ${this.getWorkspaceRoot}/${subdirectory} ${Array.isArray(flags) ? flags.join(' ') : ''}`, { stdio: 'inherit' });
+    return execSync(`bash ${this.getAspectDirectory()}/cmd/lib/git-subrepo branch ${subdirectory} ${Array.isArray(flags) ? flags.join(' ') : ''}`, { stdio: 'inherit' });
   }
 
   async commit(subdirectory: string, flags: string[]) { 
